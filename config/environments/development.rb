@@ -40,3 +40,5 @@ ChallengeMe::Application.configure do
   config.action_mailer.perform_deliveries = true
 
 end
+
+Paperclip.options[:command_path] = "/usr/local/bin/"

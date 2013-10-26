@@ -5,15 +5,20 @@
       %title= content_for?(:title) ? yield(:title) : "Challenge Me"
       %meta{:content => content_for?(:description) ? yield(:description) : "Challenge Me", :name => "description"}
         = stylesheet_link_tag "application", :media => "all"
-        = javascript_include_tag "application"
         = csrf_meta_tags
         = yield(:head)
   %body{:class => "#{controller_name} #{action_name}"}
-    #container.container
-      %header
-        = render 'layouts/navigation'
-        = render 'layouts/messages'
-      #main{:role => "main"}
-        = yield
-      %footer
-    / ! end of #container
+    = render 'shared/navigation'
+    .container
+      #left-panel.container.col-md-3
+        = render 'shared/left_panel'
+      #main-panel.container.col-md-7
+        %header
+          = render 'shared/messages'
+        #main{:role => "main"}
+          = yield
+          = javascript_include_tag "application"
+        %footer
+      / ! end of #container
+      #right-panel.container.col-md-2
+        = render 'shared/right_panel'

@@ -1,3 +1,100 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.devise li a {
+    width: 100px;
+    margin: 9px 3px !important;
+    padding: 5px !important;
+    color: #FFF !important;
+}
+
+/*
+#challenge_list {
+    width: 100px;
+    height: 100px;
+    background-color: green;
+}
+*/
+
+body {
+    .container {
+        #left-panel {
+            background-color: #2F2F2F;
+            color: #FFF;
+            max-height: 400px;
+            overflow-y: scroll;
+            border-radius: 5px;
+
+            dd {
+                color: #C0C0C0;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow:hidden;
+            }
+        }
+
+        #main-panel {
+            form {
+                margin: 5px;
+            }
+
+            #main {
+                h1{
+                    margin-top: auto;
+                }
+                .delete-account {
+                    margin-top: 6px;
+                }
+            }
+
+            .alert-error, .error {
+                color: #CD3834;
+            }
+        }
+
+        #right-panel {
+            background-color: #F0AD4E;
+            border-radius: 5px;
+
+            .classification {
+                text-align: center;
+            }
+
+            ol {
+                border-radius: 5px;
+                background-color: #FFF;
+
+                li {
+                    height: 25px;
+                    line-height: 25px;
+                }
+            }
+        }
+    }
+}
+
+.navbar-wrapper .navbar {
+    border-radius: 4px;
+}
+
+@media (min-width: 768px) {
+    .navbar-wrapper {
+        margin-top: 20px;
+    }
+
+    .form-horizontal {
+        input.form-control {
+            width: 50%;
+        }
+
+        textarea.form-control {
+            width: 75%;
+        }
+    }
+}
+
+.navbar-wrapper {
+    position: relative;
+    z-index: 15;
+}
