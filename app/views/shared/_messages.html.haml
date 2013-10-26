@@ -1,0 +1,4 @@
+- flash.each do |name, msg|
+  - puts name.inspect
+  - if msg.is_a?(String)
+    = content_tag :div, msg, id: "flash_#{name}", class: "alert #{ name == :notice ? "alert-success" : "alert-danger" }"
