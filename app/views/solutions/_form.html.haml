@@ -1,0 +1,9 @@
+= simple_form_for(@solution) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :solution_file
+    = f.input :desc
+
+  .form-actions
+    = f.button :submit

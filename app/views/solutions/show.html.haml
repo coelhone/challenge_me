@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Solution file:
+  = @solution.solution_file
+%p
+  %b Desc:
+  = @solution.desc
+
+= link_to 'Edit', edit_solution_path(@solution)
+\|
+= link_to 'Back', solutions_path
