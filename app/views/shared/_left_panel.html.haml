@@ -1,31 +1,5 @@
 %dl.scrollable
-  %dt= "asdadasdas"
-  %dd
-    %small= "asddgsdf gfas sfkjg salfgdjshbv xkljb slkjfdb lskjvb"
-  %dt= "sdddddddd"
-  %dd
-    %small= "asddgsdf gfas sfkjg 1111123 444 sas ddsf"
-  %dt= "fffffff"
-  %dd
-    %small= "asddgsdfgfas lllalalalalalalalala lalalallalalalllala"
-  %dt= "bbbbbbb"
-  %dd
-    %small= "asddgsdf gfas sfkjgfsdfsd  fffffffffffff"
-  %dt= "ccccccc"
-  %dd
-    %small= "asddgsdf gfas sfkjg salfgdf sdfsdfffffff 22222222222"
-  %dt= "asdadasdas"
-  %dd
-    %small= "asddgsdf gfas sfkjg salfgdjshbv xkljb slkjfdb lskjvb"
-  %dt= "sdddddddd"
-  %dd
-    %small= "asddgsdf gfas sfkjg 1111123 444 sas ddsf"
-  %dt= "fffffff"
-  %dd
-    %small= "asddgsdfgfas lllalalalalalalalala lalalallalalalllala"
-  %dt= "bbbbbbb"
-  %dd
-    %small= "asddgsdf gfas sfkjgfsdfsd  fffffffffffff"
-  %dt= "ccccccc"
-  %dd
-    %small= "asddgsdf gfas sfkjg salfgdf sdfsdfffffff 22222222222"
+  - Challenge.all.each do |challenge|
+    %dt= link_to challenge.name, challenge_path(challenge.id)
+    %dd
+      %small= challenge.desc

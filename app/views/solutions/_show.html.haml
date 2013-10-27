@@ -1,0 +1,10 @@
+%p
+  %b Desc:
+  = solution.desc
+%p
+  %b Solution file:
+  = solution.solution_file
+
+.pull-right
+  = link_to 'Edit', edit_solution_path(solution), class: "btn btn-info", remote: true
+  = link_to 'Remove', solution_path(id: solution.id), method: :delete, class: "btn btn-danger", remote: true

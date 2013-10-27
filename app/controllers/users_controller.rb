@@ -9,4 +9,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def solutions
+    @challenges_solutions = UserChallengeSolution.where(:user_id => params[:id]).all
+  end
 end

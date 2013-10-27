@@ -1,3 +1,5 @@
+%h1 Challenge
+
 %p#notice= notice
 
 %p
@@ -11,14 +13,25 @@
   = @challenge.closed
 %p
   %b User:
-  = @challenge.user
+  = @challenge.user.name
 %p
   %b Desc:
   = @challenge.desc
-%p
-  %b Challenge file:
-  = @challenge.challenge_file
 
-= link_to 'Edit', edit_challenge_path(@challenge)
-\|
-= link_to 'Back', challenges_path
+- if @challenge.challenge_file.present?
+  %p
+    %b Challenge file:
+    = @challenge.challenge_file
+
+- if owner_of_challenge? @challenge
+  = link_to 'Edit', edit_challenge_path(@challenge)
+- elsif solution = @challenge.user_solution(current_user)
+  %hr
+  %h2= "Solution"
+  #challenge_solution
+    = render 'solutions/show', solution: solution
+- else
+  %hr
+  %h2= "Solution"
+  #challenge_solution
+    = render 'add_solution', challenge_id: @challenge.id

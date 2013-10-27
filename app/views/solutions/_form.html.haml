@@ -1,9 +1,10 @@
-= simple_form_for(@solution) do |f|
+= simple_form_for(@solution, html: { class: 'form-horizontal well' }, remote: true) do |f|
   = f.error_notification
+  
+  = f.input :user_id,      as: :hidden, input_html: { value: @solution.user_id }
+  = f.input :challenge_id, as: :hidden, input_html: { value: @solution.challenge_id }
 
-  .form-inputs
-    = f.input :solution_file
-    = f.input :desc
+  .form-group= f.input :desc, :required => true, label_html: { class: 'col-lg-2'}, input_html: { class: 'form-control', rows: 10 }
+  .form-group= f.input :solution_file, label: :File, label_html: { class: 'col-lg-2'}, input_html: { class: 'col-lg-9' }
 
-  .form-actions
-    = f.button :submit
+  .form-actions.col-lg-offset-9= f.button :submit
