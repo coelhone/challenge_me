@@ -26,6 +26,20 @@ body {
             overflow-y: scroll;
             border-radius: 5px;
 
+            dt {
+                a {
+                    color: #FFF;
+
+                    &:hover, &:focus{
+                      background-color: #FFF;
+                      color: #000;
+                      text-decoration: initial;
+                      border-radius: 2px;
+                      padding: 2px;
+                    }
+                }
+            }
+
             dd {
                 color: #C0C0C0;
                 text-overflow: ellipsis;
@@ -45,6 +59,14 @@ body {
                 }
                 .delete-account {
                     margin-top: 6px;
+                }
+
+                h2 {
+                    margin-top: -10px
+                }
+
+                #challenge_solution {
+                    padding: 15px;
                 }
             }
 
