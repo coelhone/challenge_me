@@ -13,7 +13,13 @@ gem 'jbuilder', '~> 1.2'
 gem 'devise'
 gem 'haml-rails'
 gem 'simple_form', '>= 3.0.0.rc'
+
+#gem 'ruby-prof'
+
+# file uploading
 gem 'paperclip', '~> 3.0'
+gem 'remotipart'
+
 #gem 'cancan'
 
 group :development do
