@@ -11,4 +11,10 @@ class Solution < ActiveRecord::Base
  validates :solution_file, attachment_presence: true, if: "desc.blank?"
  validates :solution_file, attachment_presence: true, if: "solution_file.present?"
  validates :solution_file, attachment_presence: true, if: "solution_file.present?"
+
+ after_save :profile_solution
+
+ def profile_solution
+   
+ end
 end

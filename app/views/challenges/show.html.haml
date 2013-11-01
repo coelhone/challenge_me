@@ -1,37 +1,34 @@
-%h1 Challenge
+.panel.panel-info.challenge-extra-info
+  .panel-heading
+    %h1= @challenge.name
 
-%p#notice= notice
+  .panel-body
+    .challenge-desc= @challenge.desc
 
-%p
-  %b Name:
-  = @challenge.name
-%p
-  %b Date:
-  = @challenge.date
-%p
-  %b Closed:
-  = @challenge.closed
-%p
-  %b User:
-  = @challenge.user.name
-%p
-  %b Desc:
-  = @challenge.desc
+    - if @challenge.challenge_file.present?
+      %br
+      %p
+        %b Challenge file:
+        = link_to @challenge.challenge_file_file_name, @challenge.challenge_file.url
 
-- if @challenge.challenge_file.present?
-  %p
-    %b Challenge file:
-    = @challenge.challenge_file
+  .panel-footer
+    %p.text-left
+      %b Author:
+      = @challenge.user.name
+    %p.text-left
+      %b Date:
+      = "@challenge.date"
+    %p.text-left
+      %b Closed:
+      = "@challenge.closed"
 
-- if owner_of_challenge? @challenge
-  = link_to 'Edit', edit_challenge_path(@challenge)
-- elsif solution = @challenge.user_solution(current_user)
-  %hr
-  %h2= "Solution"
-  #challenge_solution
-    = render 'solutions/show', solution: solution
-- else
-  %hr
-  %h2= "Solution"
-  #challenge_solution
-    = render 'add_solution', challenge_id: @challenge.id
+- if current_user
+  - if owner_of_challenge? @challenge
+    .pull-right
+      = link_to 'Edit', edit_challenge_path(@challenge), class: "btn btn-primary"
+  - elsif solution = @challenge.user_solution(current_user)
+    #challenge_solution
+      = render 'solutions/show', solution: solution
+  - else
+    #challenge_solution
+      = render 'add_solution', challenge_id: @challenge.id

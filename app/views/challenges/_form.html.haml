@@ -4,5 +4,6 @@
   .form-group= f.input :desc, label_html: { class: 'col-lg-2'}, input_html: { class: 'form-control', rows: 5 }
   .form-group= f.association :user, label_html: { class: 'col-lg-2'}
   .form-group= f.input :challenge_file, label: :File, label_html: { class: 'col-lg-2'}, input_html: { class: 'col-lg-9' }
+  =# f.file_field :challenge_file
 
   .form-actions.col-lg-offset-9= f.button :submit
