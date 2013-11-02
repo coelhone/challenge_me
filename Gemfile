@@ -14,7 +14,11 @@ gem 'devise'
 gem 'haml-rails'
 gem 'simple_form', '>= 3.0.0.rc'
 
+gem 'draper'
+
 #gem 'ruby-prof'
+
+gem 'state_machine'
 
 # file uploading
 gem 'paperclip', '~> 3.0'
