@@ -12,7 +12,9 @@
 user = User.where(email: "test@test.pt").first_or_create(name: "test", password: "testtest")
 user2 = User.where(email: "test2@test2.pt").first_or_create(name: "test2", password: "test2test2")
 
-Challenge.where(user_id: user.id, name: "challenge_1", desc: "fazer uma soma").first_or_create
-Challenge.where(user_id: user.id, name: "challenge_2", desc: "fazer uma subtracção").first_or_create
-Challenge.where(user_id: user2.id, name: "challenge_3", desc: "fazer uma divisão").first_or_create
-Challenge.where(user_id: user2.id, name: "challenge_4", desc: "fazer uma mutliplicação balalalalalalalalalalalalaal").first_or_create
+Challenge.where(user_id: user.id, name: "challenge_1_test_created", desc: "fazer uma soma", state: "created").first_or_create
+Challenge.where(user_id: user.id, name: "challenge_2_test_active", desc: "fazer uma subtracção", state: "active").first_or_create
+Challenge.where(user_id: user.id, name: "challenge_3_test_closed", desc: "fazer uma sadadasdasd", state: "closed").first_or_create
+Challenge.where(user_id: user2.id, name: "challenge_4_test2_created", desc: "fazer uma divisão", state: "created").first_or_create
+Challenge.where(user_id: user2.id, name: "challenge_5_test2_active", desc: "fazer uma mutliplicação balalalalalalalalalalalalaal", state: "active").first_or_create
+Challenge.where(user_id: user2.id, name: "challenge_6_test2_closed", desc: "fazer uma mutliplicação asdh sdjhf hjsdbf sbdfsdkfb ksdfbksdjfb ksdbfkjsdbf alalalalalalaal", state: "closed").first_or_create
