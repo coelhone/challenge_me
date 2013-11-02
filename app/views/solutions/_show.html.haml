@@ -7,14 +7,11 @@
       %b Desc:
       = solution.desc
 
-    - if solution.solution_file.present?
-      %br
-      %p
-        %b Solution file:
-        = link_to solution.solution_file_file_name, solution.solution_file.url
+    = solution.file
 
-  .panel-footer
-    = link_to 'Edit', edit_solution_path(solution), class: "btn btn-primary", remote: true
-    = link_to 'Remove', solution_path(id: solution.id), method: :delete, class: "btn btn-danger", remote: true
+  - if solution.challenge.active?
+    .panel-footer
+      = link_to 'Edit', edit_solution_path(solution), class: "btn btn-primary", remote: true
+      = link_to 'Remove', solution_path(id: solution.id), method: :delete, class: "btn btn-danger", remote: true
 
 

@@ -4,12 +4,7 @@
 
   .panel-body
     .challenge-desc= @challenge.desc
-
-    - if @challenge.challenge_file.present?
-      %br
-      %p
-        %b Challenge file:
-        = link_to @challenge.challenge_file_file_name, @challenge.challenge_file.url
+    = @challenge.file
 
   .panel-footer
     %p.text-left
@@ -19,16 +14,8 @@
       %b Date:
       = "@challenge.date"
     %p.text-left
-      %b Closed:
-      = "@challenge.closed"
+      %b State:
+      %span{ class: @challenge.state }= @challenge.state
 
 - if current_user
-  - if owner_of_challenge? @challenge
-    .pull-right
-      = link_to 'Edit', edit_challenge_path(@challenge), class: "btn btn-primary"
-  - elsif solution = @challenge.user_solution(current_user)
-    #challenge_solution
-      = render 'solutions/show', solution: solution
-  - else
-    #challenge_solution
-      = render 'add_solution', challenge_id: @challenge.id
+  = @challenge.solution_area
