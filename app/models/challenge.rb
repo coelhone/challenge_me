@@ -12,7 +12,19 @@ class Challenge < ActiveRecord::Base
   validates :challenge_file, attachment_presence: true, if: "challenge_file.present?"
   validates :challenge_file, attachment_presence: true, if: "challenge_file.present?"
 
+#  after_create :activate
+
+  state_machine :state, :initial => :created do
+    event :activate do
+      transition :created => :active
+    end
+
+    event :close do
+      transition :active => :closed
+    end
+  end
+
   def user_solution user
-    Solution.where(challenge_id: self.id, user_id: user.id).first
+    Solution.where(challenge_id: self.id, user_id: user.id).first.try(:decorate)
   end
 end
