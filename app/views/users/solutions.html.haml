@@ -1,2 +1,8 @@
-%h1 My Solutions
-- @challenges_solutions
+.panel.panel-default
+  .panel-heading Solutions
+  .list-group
+    - @solutions.each do |solution|
+      - state = solution.challenge.state
+      .list-group-item
+        = link_to solution.challenge.name, challenge_path(solution.challenge)
+        %span{ class: "#{state} pull-right" }= state

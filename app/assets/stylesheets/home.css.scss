@@ -65,6 +65,15 @@ body {
                 .challenge-desc {
                     margin-bottom: 10px;
                 }
+
+                span {
+                    &.active {
+                        color: #4DA74D;
+                    }
+                    &.closed {
+                        color: #CA332F;
+                    }
+                }
             }
 
             .alert-error, .error {

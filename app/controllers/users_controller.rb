@@ -10,6 +10,10 @@ class UsersController < ApplicationController
   end
 
   def solutions
-    @challenges_solutions = UserChallengeSolution.where(:user_id => params[:id]).all
+    @solutions = Solution.where(:user_id => params[:id]).all
+  end
+
+  def challenges
+    @challenges = Challenge.where(:user_id => params[:id]).all
   end
 end

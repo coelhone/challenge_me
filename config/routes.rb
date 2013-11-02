@@ -6,6 +6,7 @@ ChallengeMe::Application.routes.draw do
   resources :users do
     member do
       get :solutions
+      get :challenges
     end
   end
 

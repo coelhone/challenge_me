@@ -9,6 +9,7 @@
             %li= link_to :new_challenge, new_challenge_path
             - if user_signed_in?
               %li= link_to :my_solutions, solutions_user_path(current_user)
+              %li= link_to :my_challenges, challenges_user_path(current_user)
           %ul.nav.navbar-nav.navbar-right.devise
             - if user_signed_in?
               %li= link_to 'Edit account', edit_user_registration_path, :class => "btn btn-primary"

@@ -11,12 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131026223122) do
+ActiveRecord::Schema.define(version: 20131101221000) do
 
   create_table "challenges", force: true do |t|
     t.string   "name"
     t.datetime "date"
-    t.boolean  "closed"
     t.integer  "user_id"
     t.text     "desc"
     t.datetime "created_at"
@@ -25,6 +24,7 @@ ActiveRecord::Schema.define(version: 20131026223122) do
     t.string   "challenge_file_content_type"
     t.integer  "challenge_file_file_size"
     t.datetime "challenge_file_updated_at"
+    t.string   "state"
   end
 
   add_index "challenges", ["user_id"], name: "index_challenges_on_user_id"
