@@ -12,7 +12,7 @@ class Challenge < ActiveRecord::Base
   validates :challenge_file, attachment_presence: true, if: "challenge_file.present?"
   validates :challenge_file, attachment_presence: true, if: "challenge_file.present?"
 
-#  after_create :activate
+  scope :with_state, ->(state) { where(:state => state) }
 
   state_machine :state, :initial => :created do
     event :activate do
